@@ -1,6 +1,7 @@
 package com.impactus.Impactus.domain.user;
 
 import com.impactus.Impactus.enums.UserRoles.UserRole;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,9 +27,13 @@ public class Credentials implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String login;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private UserRole userRole;
 
     public Credentials(String login, String password, UserRole userRole) {
