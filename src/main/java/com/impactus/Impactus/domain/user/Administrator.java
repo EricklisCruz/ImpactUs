@@ -17,16 +17,20 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Administrator extends User implements Serializable {
+public class Administrator implements Serializable {
     @Serial
     private static final long serialVersionUID = 9127122647726027896L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String lastPhone;
     private String cnpj;
 
-    public Administrator(String cnpj) {
+    public Administrator(String name, String lastPhone, String cnpj) {
+        this.name = name;
+        this.lastPhone = lastPhone;
         this.cnpj = cnpj;
     }
 }
