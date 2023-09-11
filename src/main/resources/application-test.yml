@@ -17,8 +17,8 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
 api:
   security:
     token:
-      secret: {JWT_TOKEN:12345678}
+      secret: 12345678

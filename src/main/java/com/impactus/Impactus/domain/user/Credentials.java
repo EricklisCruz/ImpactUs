@@ -3,6 +3,8 @@ package com.impactus.Impactus.domain.user;
 import com.impactus.Impactus.enums.UserRoles.UserRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,6 +35,7 @@ public class Credentials implements Serializable {
     private String login;
     @Column(nullable = false)
     private String password;
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole userRole;
 
