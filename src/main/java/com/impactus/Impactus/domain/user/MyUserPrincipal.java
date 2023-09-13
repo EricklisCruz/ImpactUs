@@ -10,19 +10,14 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-public class MyUserPrincipal implements UserDetails, Serializable {
+public record MyUserPrincipal(Credentials credentials) implements UserDetails, Serializable {
 
     @Serial
     private static final long serialVersionUID = -5240971341812921584L;
-    private final Credentials credentials;
-
-    public MyUserPrincipal(Credentials credentials) {
-        this.credentials = credentials;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(credentials.getUserRole() == UserRole.ADMIN_ROLE) return List.of(new SimpleGrantedAuthority("ADMIN_ROLE"),
+        if(this.credentials.getUserRole() == UserRole.ADMIN_ROLE) return List.of(new SimpleGrantedAuthority("ADMIN_ROLE"),
                 new SimpleGrantedAuthority("USER_ROLE"));
         else return List.of(new SimpleGrantedAuthority("USER_ROLE"));
     }

@@ -1,6 +1,7 @@
 package com.impactus.Impactus.domain;
 
 import com.impactus.Impactus.domain.user.Customer;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,18 +16,14 @@ import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
 
-@Entity
+@Embeddable
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Address implements Serializable {
     @Serial
     private static final long serialVersionUID = -8586900552614580788L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String street;
     private String city;
     private String state;
