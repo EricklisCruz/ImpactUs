@@ -14,6 +14,7 @@ look for products, add in a shipping cart and see your products. An Administrato
 1. Java - 17
 2. Maven - 3.x.x
 3. MySQL
+4. IDE (Intellij IDEA or Eclipse) I use Intellij. Just pick one
 ## Steps to setup
 1. Clone the application
    ```bash
