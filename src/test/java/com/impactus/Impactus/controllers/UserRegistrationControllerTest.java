@@ -1,9 +1,12 @@
 package com.impactus.Impactus.controllers;
 
 import com.impactus.Impactus.ApplicationConfigTest;
+import com.impactus.Impactus.domain.user.Administrator;
 import com.impactus.Impactus.domain.user.Credentials;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.assertj.core.api.Assertions.assertThat;

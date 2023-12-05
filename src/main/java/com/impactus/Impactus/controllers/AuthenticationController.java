@@ -4,6 +4,7 @@ import com.impactus.Impactus.domain.user.MyUserPrincipal;
 import com.impactus.Impactus.dto.AuthenticationDTO;
 import com.impactus.Impactus.dto.LoginResponseDTO;
 import com.impactus.Impactus.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
 
+    @Operation(summary = "This method is used to get login")
     @PostMapping(value = "/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
         var usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(data.getLogin(),

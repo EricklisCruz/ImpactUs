@@ -30,11 +30,13 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/user/customer").permitAll()
                         .requestMatchers(HttpMethod.POST, "/user/registration").permitAll()
                         .requestMatchers(HttpMethod.GET, "/user").permitAll()
                         .requestMatchers(HttpMethod.POST, "/user/administrator").hasAnyAuthority("ADMIN_ROLE")
+                        .requestMatchers(HttpMethod.POST, "/product/administrator").hasAnyAuthority("ADMIN_ROLE")
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

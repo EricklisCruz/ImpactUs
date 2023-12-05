@@ -29,7 +29,6 @@ public class UserRegistration {
 
     public Credentials getCurrentUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        principal = ((MyUserPrincipal) principal);
         if (principal != null && principal instanceof MyUserPrincipal) {
             Credentials credentials = ((MyUserPrincipal) principal).credentials();
             return credentials;

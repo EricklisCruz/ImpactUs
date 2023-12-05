@@ -2,12 +2,12 @@ spring:
   jpa:
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/impact_us
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3333/impact_us
     username: root
-    password: 12345
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 

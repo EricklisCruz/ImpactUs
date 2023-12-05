@@ -36,17 +36,18 @@ public class Product implements Serializable {
     private BigDecimal price;
     @Column(nullable = false)
     private Integer quantity;
+    private String description;
     @Column(nullable = false)
     private LocalDateTime data;
     @ManyToOne
     @JoinColumn(name = "cod_admistrator")
     private Administrator administrator;
 
-    public Product(String name, BigDecimal price, Integer quantity) {
+    public Product(String name, BigDecimal price, Integer quantity, String description,LocalDateTime data) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        setData(LocalDateTime.now());
+        this.description = description;
+        this.data = data;
     }
-
 }

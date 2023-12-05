@@ -37,4 +37,5 @@ public class Address implements Serializable {
         this.zipCode = zipCode;
         this.country = country;
     }
+
 }
